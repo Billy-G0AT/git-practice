@@ -7,11 +7,6 @@ resource "aws_s3_bucket" "this" {
   bucket = var.bucket_name
 }
 
-moved {
-  from = aws_s3_bucket.hcl-domain-bucket
-  to   = aws_s3_bucket.this
-}
-
 #* Bucket Index File
 resource "aws_s3_bucket_website_configuration" "hcl-domain-webconfig" {
   bucket = var.bucket_name
