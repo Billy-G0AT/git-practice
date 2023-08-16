@@ -3,8 +3,13 @@ provider "aws" {
 }
 
 #* Domain Bucket
-resource "aws_s3_bucket" "hcl-domain-bucket" {
-    bucket = var.bucket_name  
+resource "aws_s3_bucket" "this" {
+  bucket = var.bucket_name
+}
+
+moved {
+  from = aws_s3_bucket.hcl-domain-bucket
+  to   = aws_s3_bucket.this
 }
 
 #* Bucket Index File
